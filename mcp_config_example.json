@@ -1,0 +1,47 @@
+{
+  "description": "Configuration example for Claude Desktop or other MCP clients",
+  "mcpServers": {
+    "ilspy": {
+      "command": "python",
+      "args": [
+        "-m", 
+        "ilspy_mcp_server.server"
+      ],
+      "env": {
+        "LOGLEVEL": "INFO"
+      }
+    }
+  },
+  "instructions": [
+    "1. Install the package: pip install ilspy-mcp-server",
+    "2. Make sure ilspycmd is installed: dotnet tool install --global ilspycmd",
+    "3. Add this configuration to your MCP client's config file",
+    "4. Set LOGLEVEL to DEBUG for more verbose output if needed"
+  ],
+  "example_usage": {
+    "decompile_assembly": {
+      "description": "Decompile a .NET assembly",
+      "parameters": {
+        "assembly_path": "C:\\path\\to\\your\\assembly.dll",
+        "type_name": "MyNamespace.MyClass",
+        "language_version": "Latest",
+        "remove_dead_code": true
+      }
+    },
+    "list_types": {
+      "description": "List types in an assembly",
+      "parameters": {
+        "assembly_path": "C:\\path\\to\\your\\assembly.dll",
+        "entity_types": ["c", "i", "s"]
+      }
+    },
+    "generate_diagrammer": {
+      "description": "Generate HTML diagrammer",
+      "parameters": {
+        "assembly_path": "C:\\path\\to\\your\\assembly.dll",
+        "output_dir": "C:\\path\\to\\output",
+        "include_pattern": "MyNamespace\\..+"
+      }
+    }
+  }
+}
