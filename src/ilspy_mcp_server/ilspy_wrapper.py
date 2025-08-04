@@ -113,29 +113,17 @@ class ILSpyWrapper:
         if request.create_project:
             args.append("-p")
         
-        # Add IL code flags
-        if request.show_il_sequence_points:
-            args.append("--il-sequence-points")
-        elif request.show_il_code:
+        # Add IL code flag
+        if request.show_il_code:
             args.append("-il")
-        
-        # Add PDB generation
-        if request.generate_pdb:
-            args.append("-genpdb")
-        
-        # Add PDB usage
-        if request.use_pdb:
-            args.extend(["-usepdb", request.use_pdb])
         
         # Add reference paths
         for ref_path in request.reference_paths:
             args.extend(["-r", ref_path])
         
-        # Add optimization flags
+        # Add optimization flag
         if request.remove_dead_code:
             args.append("--no-dead-code")
-        if request.remove_dead_stores:
-            args.append("--no-dead-stores")
         
         # Add directory structure flag
         if request.nested_directories:
